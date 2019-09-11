@@ -57,19 +57,47 @@ public class Main {
         for(int i = 0; i < 9; i++){
             for(int j = i + 1; j < 10; j++){
                 if(numArray[i].equals(numArray[j])){
-                    numArray[j] = null;
+                    numArray[j] =  " ";
                 }
             }
         }
         //print remaining values
-        //FIX - IT'S THROWING A NULL POINTER EXCEPTION ERROR
         for (int i = 0; i < 10; i++){
-            try{
+            if(!numArray[i].equals(" ")){
                 System.out.println(numArray[i]);
-            }catch(Exception e){
-
             }
         }
         System.out.println();
+
+        //4. Given 2 arrays, print out all pairs that sum to 13.
+        int[] array1 = {1,7,6,5,9};
+        int[] array2 = {2,7,6,3,4};
+        System.out.println("The following array pairs sum to 13: ");
+        for(int i = 0; i < array1.length; i++){
+            for(int j = 0; j < array2.length; j++)
+            if(array1[i] + array2[j] == 13){
+                System.out.println("(" + array1[i] + "," + array2[j] + ")");
+            }
+        }
+        System.out.println();
+
+        //5. Store 10 input values in an array and print the total number of odd and even values.
+        int[] values = new int[10];
+        int oddSum = 0;
+        int evenSum = 0;
+        System.out.println("I will ask you for 10 numbers.");
+        for(int i = 0; i < 10; i++){
+            System.out.println("Please enter number #" + (i+1) + ":");
+            int newNum = key.nextInt();
+            values[i] = newNum;
+            if(values[i]%2 == 0){
+                evenSum += 1;
+            }else {
+                oddSum += 1;
+            }
+        }
+        System.out.println("You entered " + oddSum + " odd numbers.");
+        System.out.println("You entered " + evenSum + " even numbers.");
+
     }
 }
